@@ -1,0 +1,26 @@
+GET http://localhost/project/example-app/public/api/posts
+
+####
+
+POST http://localhost/project/example-app/public/api/posts HTTP/1.1
+Content-Type: application/json 
+
+{
+    "title": "My brand new title",
+    "content": "My brand new content"
+}
+
+### 
+
+PUT http://localhost/project/example-app/public/api/posts/5
+Content-Type: application/json
+
+{
+    "title":"updated 1",
+    "content":"updated5"
+}
+
+
+### 
+
+DELETE http://localhost/project/example-app/public/api/posts/6
