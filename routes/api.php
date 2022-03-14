@@ -2,6 +2,9 @@
 
 use App\Models\Post;
 use App\Http\Controllers\PostsApiController;
+use App\Http\Controllers\LeastOrdersApiController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +23,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/',function(){
+    return view('welcome');
+});
 
-Route::get('/posts', [PostsApiController::class,'index']);
-Route::post('/posts', [PostsApiController::class,'store']);
-Route::put('/posts/{post}', [PostsApiController::class,'update']);
-Route::delete('/posts/{post}', [PostsApiController::class,'destroy']);
+Route::get('/orders', [OrderController::class,'index']);
+Route::get('/orders/{order}/edit', [OrderController::class,'edit']);
+Route::put('/orders/{order}', [OrderController::class,'update']);
+Route::post('/orders', [LeastOrdersApiController::class,'storeproducts']);
+Route::put('/orders/{post}', [LeastOrdersApiController::class,'updateproducts']);
+Route::delete('/orders/{post}', [LeastOrdersApiController::class,'destroyproducts']);
+
+Route::get('/products', [ProductController::class,'index']);
+Route::post('/products', [ProductController::class,'postUpdate']);
