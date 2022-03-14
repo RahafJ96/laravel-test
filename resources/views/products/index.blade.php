@@ -38,12 +38,13 @@
       <div class="row">
         <div class="col">
           <!-- content of page -->
-          <form class="form-inline">
-            <div class="form-group">
+          <form class="form-inline" action="{{router('search'}}" method="POST">
+          @csrf  
+          <div class="form-group">
               <label>From</label>
-              <input type="date" value="<?php echo date('Y-m-d'); ?>" class="mx-sm-3">
+              <input type="date" value="<?php echo date('Y-m-d'); ?>" class="mx-sm-3" name="fromDate" id="fromDate">
               <label>To</label>
-              <input type="date" value="<?php echo date('Y-m-d', strtotime('tomorrow')); ?>" class="mx-sm-3">
+              <input type="date" value="<?php echo date('Y-m-d', strtotime('tomorrow')); ?>" class="mx-sm-3" name="toDate" id="toDate">
               <label>Day</label>
               <div class="mx-sm-3">
                 <select name="location" required class="form-control" style="border-radius:20px;width:20rem;">

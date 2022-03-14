@@ -36,3 +36,6 @@ Route::delete('/orders/{post}', [LeastOrdersApiController::class,'destroyproduct
 
 Route::get('/products', [ProductController::class,'index']);
 Route::post('/products', [ProductController::class,'postUpdate']);
+
+Route::get('report', 'App\Http\Controllers\ProductController@report')->name('report');
+Route::post('report', 'App\Http\Controllers\ProductController@search')->name('search');
